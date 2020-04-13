@@ -2,7 +2,7 @@
 
 DOCKER="docker"
 # Git repo url of Hyperion
-GIT_REPO_URL="https://github.com/SJunkies/hyperion.ng/tree/entertainment-api-2020"
+GIT_REPO_URL="https://github.com/Rickexe/hyperion.ng-1"
 # cmake build type
 BUILD_TYPE="Release"
 # the image tag at hyperionproject/hyperion-ci
