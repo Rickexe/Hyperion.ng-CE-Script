@@ -2,11 +2,11 @@
 
 DOCKER="docker"
 # Git repo url of Hyperion
-GIT_REPO_URL="https://github.com/hyperion-project/hyperion.ng.git"
+GIT_REPO_URL="https://github.com/SJunkies/hyperion.ng/tree/entertainment-api-2020"
 # cmake build type
 BUILD_TYPE="Release"
 # the image tag at hyperionproject/hyperion-ci
-BUILD_TARGET="amd64"
+BUILD_TARGET="aarch64"
 # build packages (.deb .zip ...)
 BUILD_PACKAGES=true
 # packages string inserted to cmake cmd
@@ -97,7 +97,7 @@ $DOCKER run --rm \
 	hyperionproject/hyperion-ci:$BUILD_TARGET \
 	/bin/bash -c "mkdir hyperion && cp -r /source/. /hyperion &&
 	cd /hyperion && mkdir build && cd build &&
-	cmake -DCMAKE_BUILD_TYPE=${BUILD_TYPE} .. || exit 2 &&
+	cmake -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DENABLE_DISPMANX=OFF .. || exit 2 &&
 	make -j $(nproc) ${PACKAGES} || exit 3 &&
 	echo '---> Copy binaries and packages to host folder: ${SCRIPT_PATH}/deploy' &&
 	cp -v /hyperion/build/bin/h* /deploy/ 2>/dev/null || : &&
