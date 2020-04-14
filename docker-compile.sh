@@ -94,7 +94,7 @@ echo "---> Startup docker..."
 $DOCKER run --rm \
 	-v "${SCRIPT_PATH}/deploy:/deploy" \
 	-v "${SCRIPT_PATH}/hyperion:/source:ro" \
-	rickexe/hyperionhue:latest \
+	rickexe/hyperion:aarch64 \
 	/bin/bash -c "mkdir hyperion && cp -r /source/. /hyperion &&
 	cd /hyperion && mkdir build && cd build &&
 	cmake -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DENABLE_DISPMANX=OFF .. || exit 2 &&
